@@ -32,25 +32,25 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品の状態の情報が空では出品できない' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it '配送料の負担の情報が空では出品できない' do
-        @item.shipping_fee_id = ''
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
       end
 
       it '発送元の地域の情報が空では出品できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it '発送までの日数の情報が空では出品できない' do
-        @item.shipping_time_id = ''
+        @item.shipping_time_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping time can't be blank")
       end
