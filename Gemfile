@@ -85,6 +85,9 @@ end
 gem 'devise'
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 
 gem 'rubocop', require: false
+
+gem 'active_hash'
+
