@@ -1,5 +1,4 @@
 function items (){
-  console.log("JavaScript loaded");
   
   const priceInput = document.querySelector("#item-price");
   const taxOutput = document.querySelector("#add-tax-price");
