@@ -1,4 +1,4 @@
-<%= render "shared/header" %>
+<%= render "shared/header" %>2
 <div class='main'>
 
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
@@ -128,23 +128,25 @@
     </div>
     <ul class='item-lists'>
       <% if @items.any? %>
-      <!--
-      <% @items.each do |item| %>
-      <li class='list'>
-        <%#= link_to item_path(item) do %>
+       <% @items.each do |item| %>
+       <li class='list'>
+        <%#= link_to _path(item) do %>
         <div class='item-img-content'>
            <%= image_tag(item.image.attached? ? url_for(item.image) : "item-sample.png", class: "item-img") %>
 
+       <!--
         <%# if item.sold_out? %>
         <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
-           <%# end %> 
+        <%# end %>
+        -->
+
         </div>
         <div class='item-info'>
           <h3 class='item-name'><%= item.name %></h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.shipping_fee %></span>
+            <span><%= item.price %>円<br><%= item.shipping_fee.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -154,7 +156,6 @@
         <%# end %>
       </li>
     <% end %>
-    -->
     <% else %>
     
       <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
