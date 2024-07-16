@@ -31,7 +31,7 @@
      <%= link_to "削除", "#", method: :delete, class: "item-destroy", data: { confirm: '本当に削除しますか？' } %>
 
     
-    <% elsif user_signed_in? && current_user != @item.user && !@item.sold_out? %>
+    <% else %>
     <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
     <% end %>
     
