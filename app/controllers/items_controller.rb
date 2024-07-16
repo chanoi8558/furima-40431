@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update]
-  before_action :check_item_owner, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :check_item_owner, only: [:edit, :update, :destroy]
   #before_action :redirect_if_sold_out, only: [:edit, :update]
 
   def index
@@ -42,6 +42,15 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: '商品が削除されました。'
+    else
+      redirect_to @item, alert: '商品の削除に失敗しました。'
+    end
+  end
+
 
   private
 
