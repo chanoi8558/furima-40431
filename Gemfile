@@ -91,3 +91,6 @@ gem 'rubocop', require: false
 
 gem 'active_hash'
 
+gem 'payjp'
+
+gem 'gon'
