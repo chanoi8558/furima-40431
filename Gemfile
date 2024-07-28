@@ -19,7 +19,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem 'turbo-rails', '>= 1.0.0'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -91,3 +91,8 @@ gem 'rubocop', require: false
 
 gem 'active_hash'
 
+gem 'payjp'
+
+gem 'gon'
+
+gem 'dotenv-rails'

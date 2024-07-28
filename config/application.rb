@@ -11,6 +11,14 @@ module Furima40431
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+        # Add the following lines to load environment variables from .env file
+        config.before_configuration do
+          env_file = File.join(Rails.root, '.env')
+          if File.exist?(env_file)
+            Dotenv.load(env_file)
+          end
+        end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
