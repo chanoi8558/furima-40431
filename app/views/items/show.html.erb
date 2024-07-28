@@ -33,7 +33,7 @@
      <% end %>
      <% else %>
      <% unless @item.sold_out? %>
-     <%= link_to "購入画面に進む", item_orders_path(@item), method: :get, class: "item-red-btn" %>
+      <%= link_to "購入画面に進む", item_orders_path(@item), method: :get, class: "item-red-btn", data: { turbo: false } %>
   <% end %>
 <% end %>
 
