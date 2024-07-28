@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_item_owner, only: [:edit, :update, :destroy]
-  #before_action :redirect_if_sold_out, only: [:edit, :update]
+  before_action :redirect_if_sold_out, only: [:edit, :update]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -43,13 +43,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    if @item.destroy
-      redirect_to root_path, notice: '商品が削除されました。'
-    else
-      redirect_to @item, alert: '商品の削除に失敗しました。'
-    end
+ def destroy
+  if @item.destroy
+    redirect_to root_path, notice: '商品が削除されました。'
+  else
+    redirect_to @item, alert: '商品の削除に失敗しました。'
   end
+end
 
 
   private
@@ -62,9 +62,9 @@ class ItemsController < ApplicationController
     redirect_to root_path, alert: '権限がありません。' unless @item.user == current_user
   end
 
-  #def redirect_if_sold_out
-   # redirect_to root_path, alert: '売却済み商品のため編集できません。' if @item.sold_out?
-  #end
+  def redirect_if_sold_out
+   redirect_to root_path, alert: '売却済み商品のため編集できません。' if @item.sold_out?
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_time_id, :price, :image).merge(user_id: current_user.id)
